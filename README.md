@@ -1,7 +1,7 @@
 # 大数据管理与分析 · 课程实验
 
 山东大学计算机科学与技术学院《大数据管理与分析》课程三次实验的代码与报告。
-运行环境：Linux（Ubuntu 20.04）+ JDK 1.8 + Hadoop 3.3.2（部分实验含 Spark / HBase）。
+运行环境：Linux（Ubuntu 20.04 / 24.04）+ JDK 1.8 + Hadoop 3.3.x（部分实验含 Spark / HBase）。
 
 ## 目录
 
@@ -11,7 +11,7 @@
 | `bigdata-lab2/` | 实验二 文档倒排索引 | 两个 MapReduce 作业构建倒排索引、停词表、10 篇英文语料 |
 | `bigdata-lab3/` | 实验三 PageRank | MapReduce / Spark 两种实现、HBase 存储与 top-10 输出 |
 
-实验报告（docx / pdf）位于仓库根目录，各实验目录内另有一份副本。
+实验报告（docx / pdf）位于仓库根目录，实验二目录内另有一份副本。
 
 ## 实验二：文档倒排索引
 

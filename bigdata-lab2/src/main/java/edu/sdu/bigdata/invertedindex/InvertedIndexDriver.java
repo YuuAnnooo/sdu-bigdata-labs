@@ -7,6 +7,7 @@ import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.TaskCounter;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
@@ -97,8 +98,8 @@ public class InvertedIndexDriver extends Configured implements Tool {
         System.out.println("inverted index built in " + cost + " ms");
         System.out.println("stage1 (word/doc counts): " + stage1Output);
         System.out.println("stage2 (inverted index  ): " + stage2Output);
-        System.out.println("index words: " + stage2.getCounters()
-                .findCounter("org.apache.hadoop.mapreduce.TaskCounter.REDUCE_OUTPUT_RECORDS").getValue());
+        System.out.println("index words: "
+                + stage2.getCounters().findCounter(TaskCounter.REDUCE_OUTPUT_RECORDS).getValue());
         System.out.println("==================================================");
         return 0;
     }

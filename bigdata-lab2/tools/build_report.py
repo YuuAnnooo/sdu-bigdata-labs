@@ -288,10 +288,10 @@ def build() -> Path:
     # ---------------- 环境
     r4 = table.rows[4].cells[0].merge(table.rows[4].cells[1]).merge(table.rows[4].cells[2])
     cell_text(r4, "实验软件和硬件环境：", bold=True)
-    rich(r4, [("硬件：", True), ("x86 计算机（多核 CPU / 16 GB 内存）；Hadoop 集群环境（HDFS + YARN）。", False)],
+    rich(r4, [("硬件：", True), ("x86 计算机（多核 CPU / 16 GB 内存）；Hadoop 伪分布式集群（单节点，HDFS + YARN）。", False)],
          first_line=0.24)
-    rich(r4, [("软件：", True), ("Ubuntu 20.04 LTS、JDK 1.8、Hadoop 3.3.2（HDFS + YARN + MapReduce）、Maven 3.8；"
-                                 "语料下载与整理使用 Python 3 / PowerShell。", False)],
+    rich(r4, [("软件：", True), ("Ubuntu 24.04 LTS、JDK 1.8.0_504、Hadoop 3.3.6（HDFS + YARN + MapReduce）；"
+                                 "语料下载与整理使用 Python 3，作业用 javac 编译打包（也可用 mvn clean package）。", False)],
          first_line=0.24)
     rich(r4, [("运行方式：", True), ("代码打包为 jar，用 ", False), ("hadoop jar", True),
               (" 提交到 YARN；输入语料、停词表与输出目录均位于 HDFS。", False)], first_line=0.24)
@@ -315,8 +315,8 @@ def build() -> Path:
                "② 复合键——把 (单词, 文档名) 用制表符拼成一个 Text 键，框架按键排序并分组，"
                "自然完成“按单词+文档”的聚合，这是本题的核心技巧；"
                "③ Combiner——作业一的求和满足结合律与交换律，可直接复用同一个 Reducer 类做 Combiner，"
-               "把 map 端 ", False), (f"6 595", True), (" 条中间记录压到 ", False), (f"3 644", True),
-              (" 条（减少 44.7%），显著降低 shuffle 数据量。作业二的输出是拼接后的字符串而非可合并的数值，"
+               "把 map 端 ", False), (f"6 595", True), (" 条中间记录压到 ", False), (f"3 614", True),
+              (" 条（减少 45.2%），显著降低 shuffle 数据量。作业二的输出是拼接后的字符串而非可合并的数值，"
                "不能加 Combiner。", False)], first_line=0.24)
     heading(r5, "3. 分词与停词过滤")
     para(r5, "英文文本可直接用标点切分：先统一转小写，再把所有非字母字符（标点、数字、URL 符号）替换为空格，"
@@ -391,30 +391,34 @@ def build() -> Path:
 
     heading(r6, "步骤 3：上传语料与停词表并编译作业")
     code_block(r6, [
-        "$ hdfs dfs -mkdir -p /user/lab/lab2/corpus",
-        "$ hdfs dfs -put corpus/raw/document*.txt /user/lab/lab2/corpus/",
-        "$ hdfs dfs -put stopwords/stopwords_en.txt /user/lab/lab2/stopwords/",
-        "$ mvn clean package -DskipTests          # 生成 target/inverted-index.jar",
+        "$ hdfs dfs -mkdir -p /user/hadoop/lab2/corpus",
+        "$ hdfs dfs -put corpus/raw/document*.txt /user/hadoop/lab2/corpus/",
+        "$ hdfs dfs -put stopwords/stopwords_en.txt /user/hadoop/lab2/stopwords/",
+        "$ javac -cp \"$(hadoop classpath)\" -d build \\",
+        "      src/main/java/edu/sdu/bigdata/invertedindex/*.java",
+        "$ jar cf inverted-index.jar -C build .   # 等价于 mvn clean package",
     ])
 
     heading(r6, "步骤 4：提交两个 MapReduce 作业")
     code_block(r6, [
-        "$ hadoop jar target/inverted-index.jar \\",
+        "$ hadoop jar inverted-index.jar \\",
         "    edu.sdu.bigdata.invertedindex.InvertedIndexDriver \\",
-        "    /user/lab/lab2/corpus  /user/lab/lab2/index \\",
-        "    /user/lab/lab2/stopwords/stopwords_en.txt",
+        "    /user/hadoop/lab2/corpus  /user/hadoop/lab2/index \\",
+        "    /user/hadoop/lab2/stopwords/stopwords_en.txt",
     ])
-    para(r6, f"作业一按 8 KB 切分出 13 个 map 任务、1 个 reduce 任务，输出 {n(N_PAIRS)} 条 (单词,文档,词频) 记录；"
-             f"作业二再把这 {n(N_PAIRS)} 条记录聚合成 {n(N_WORDS)} 个单词的倒排表。逐阶段日志见图 2。",
+    para(r6, f"作业一按 128 MB 块大小把 10 个文件切成 10 个分片，启动 10 个 map 任务、1 个 reduce 任务，"
+             f"输出 {n(N_PAIRS)} 条 (单词,文档,词频) 记录；"
+             f"作业二再把这 {n(N_PAIRS)} 条记录聚合成 {n(N_WORDS)} 个单词的倒排表。"
+             f"作业一耗时 28 s、作业二 11 s，两个作业连同客户端与 YARN 启动共 53 s，日志见图 2。",
          first_line=0.24)
     picture(r6, "fig3_job1.png", 4.4)
-    caption(r6, "图 2  作业一 map / combine / reduce 运行日志（节选）")
+    caption(r6, "图 2  作业一在 YARN 上的运行日志（job_1793180713264_0001，节选）")
 
 
     heading(r6, "步骤 5：查看倒排索引结果并验证查询")
     code_block(r6, [
-        "$ hdfs dfs -cat /user/lab/lab2/index/stage2/part-r-00000 | head -8",
-        "$ hdfs dfs -cat /user/lab/lab2/index/stage2/part-r-00000 | wc -l",
+        "$ hdfs dfs -cat /user/hadoop/lab2/index/stage2/part-r-00000 | head -8",
+        "$ hdfs dfs -cat /user/hadoop/lab2/index/stage2/part-r-00000 | wc -l",
     ])
     para(r6, "表 2 列出部分单词的倒排索引结果（均为程序真实输出；完整 2 163 行结果见 "
              "results/stage2/part-r-00000）。<文档,词频> 按词频降序排列，<total,N> 为该词的总出现次数。",
@@ -457,7 +461,7 @@ def build() -> Path:
                "而 spark、lucene 等专有词高度集中于单篇文档。倒排索引只解决“定位”，排序还需要 IDF 或 BM25 "
                "加权，这正是搜索引擎在倒排表之上再引入打分模型的原因。", False)], first_line=0.24, keep=True)
     rich(r7, [("4. 性能与可扩展性。", True),
-              ("Combiner 让作业一的中间数据减少 44.7%，是 MapReduce 里性价比最高的优化；"
+              ("Combiner 让作业一的中间数据从 6 595 条降到 3 614 条（减少 45.2%），是 MapReduce 里性价比最高的优化；"
                "作业二强制单 reduce 以保证倒排表全局有序，代价是无法并行归约，文档规模上万后该任务是瓶颈，"
                "可以改为多 reduce + 按首字母分桶输出，或改用二次排序在 reduce 端流式写出；"
                "另外 IndexReducer 需要把一个单词的全部 postings 装入内存，遇到超高频词有 OOM 风险。", False)], first_line=0.24, keep=True)

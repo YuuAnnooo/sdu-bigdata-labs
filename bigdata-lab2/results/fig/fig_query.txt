@@ -1,0 +1,5 @@
+$ hdfs dfs -cat /user/hadoop/lab2/index/stage2/part-r-00000 | grep -E '^(data|hadoop|index|mapreduce) '
+data <document09.txt,83>;<document05.txt,64>;<document02.txt,22>;<document04.txt,17>;<document01.txt,16>;<document06.txt,10>;<document10.txt,8>;<document03.txt,4>;<total,224>.
+hadoop <document01.txt,38>;<document04.txt,3>;<document02.txt,1>;<total,42>.
+index <document06.txt,44>;<document03.txt,25>;<document01.txt,1>;<total,70>.
+mapreduce <document02.txt,28>;<document01.txt,13>;<document04.txt,3>;<total,44>.

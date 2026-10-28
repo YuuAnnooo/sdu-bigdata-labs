@@ -1,0 +1,9 @@
+$ hdfs dfs -cat /user/hadoop/lab2/index/stage2/part-r-00000 | head -5
+ability <document05.txt,1>;<document09.txt,1>;<document10.txt,1>;<total,3>.
+abstraction <document04.txt,3>;<document10.txt,1>;<total,4>.
+abstractions <document01.txt,1>;<document02.txt,1>;<total,2>.
+acceptable <document09.txt,1>;<total,1>.
+accepts <document02.txt,1>;<total,1>.
+   ...
+$ hdfs dfs -cat /user/hadoop/lab2/index/stage2/part-r-00000 | wc -l
+2163
