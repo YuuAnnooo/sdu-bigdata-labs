@@ -19,7 +19,7 @@ from docx.shared import Cm, Inches, Pt, RGBColor
 
 ROOT = Path(__file__).resolve().parent.parent
 FIG = ROOT / "report" / "figures"
-OUT = ROOT / "report" / "202600000000-张三-实验二.docx"
+OUT = ROOT / "report" / "实验二报告.docx"
 
 SONG = "宋体"
 MONO = "Consolas"
@@ -263,16 +263,16 @@ def build() -> Path:
     row0 = table.rows[0]
     a = row0.cells[0].merge(row0.cells[1])
     cell_text(a, "实验题目：实验二  文档倒排索引算法实现")
-    cell_text(row0.cells[2], "学号：____________")
+    cell_text(row0.cells[2], "学号：")
 
     row1 = table.rows[1]
     cell_text(row1.cells[0], "日期：2026-10-28")
-    cell_text(row1.cells[1], "班级：____________")
-    cell_text(row1.cells[2], "姓名：____________")
+    cell_text(row1.cells[1], "班级：")
+    cell_text(row1.cells[2], "姓名：")
 
     row2 = table.rows[2]
     b = row2.cells[0].merge(row2.cells[1]).merge(row2.cells[2])
-    cell_text(b, "Email：________________@mail.sdu.edu.cn        GitHub 仓库（公开）："
+    cell_text(b, "Email：        GitHub 仓库（公开）："
                  "https://github.com/YuuAnnooo/sdu-bigdata-labs")
 
     fix_table_layout(table, widths)

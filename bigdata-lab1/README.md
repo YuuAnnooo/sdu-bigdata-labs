@@ -18,7 +18,7 @@
 | `out/` | 三个作业的输出结果（与样例完全一致） |
 | `tools/local_check.py` | 本地校验脚本：不启动 Hadoop，用 Python 复现 map/shuffle/reduce 语义核对输出 |
 
-> 实验报告（DOCX / PDF）按课程要求单独提交，不放在本仓库内。
+> 实验报告（DOCX / PDF）位于仓库根目录的 `实验一报告.docx` / `实验一报告.pdf`。
 
 ## 环境
 

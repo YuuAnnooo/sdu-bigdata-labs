@@ -20,7 +20,7 @@ BODY_SIZE = 12          # 小四
 CODE_SIZE = 9
 
 OUT_DIR = r"D:\CODE\课程作业\大数据"
-DOCX_NAME = "202600000000-张三-实验一.docx"
+DOCX_NAME = "实验一报告.docx"
 
 # ----------------------------------------------------------------- 基础工具
 
@@ -290,16 +290,16 @@ def main():
     c = table.cell(0, 0).merge(table.cell(0, 1))
     put(c, "实验题目：熟悉常用的 Linux、Hadoop 与 HDFS 操作及 MapReduce 初级编程",
         indent=False, bold=False)
-    put(table.cell(0, 2), "学号：202600000000", indent=False)
+    put(table.cell(0, 2), "学号：", indent=False)
 
     # 行 1：日期 / 班级 / 姓名
     put(table.cell(1, 0), "日期：2026.9.22", indent=False)
-    put(table.cell(1, 1), "班级：2026级1班", indent=False)
-    put(table.cell(1, 2), "姓名：张三", indent=False)
+    put(table.cell(1, 1), "班级：", indent=False)
+    put(table.cell(1, 2), "姓名：", indent=False)
 
     # 行 2：Email
     c = table.cell(2, 0).merge(table.cell(2, 2))
-    put(c, "Email：XXXXXXXX@qq.com", indent=False)
+    put(c, "Email：", indent=False)
 
     # 行 3：实验目的
     c = table.cell(3, 0).merge(table.cell(3, 2))

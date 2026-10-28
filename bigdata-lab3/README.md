@@ -15,7 +15,7 @@
 | `tools/gen_dataset.py` | 生成数据集并校验链接闭合 |
 | `tools/local_check.py` | 本地校验：不启动 Hadoop/Spark，用纯 Python 复现两套语义并比对 |
 
-> 实验报告（DOCX / PDF）按课程要求单独提交，不放在本仓库内。
+> 实验报告（DOCX / PDF）位于仓库根目录的 `实验三报告.docx` / `实验三报告.pdf`。
 
 ## 环境
 
