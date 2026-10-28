@@ -504,7 +504,8 @@ Philip  Jesse      Steven  Jesse      Steven  Mary""")
     put(c, "与指导书样例对照，12 组祖孙关系完全相同，只是行的排列顺序不同——这是因为样例按“孙辈分组”"
            "排列，而作业输出按 reduce 的 key 字典序排列，集合意义上的结果是等价的。")
     put(c, "以上三个 MapReduce 程序与第 1、2 部分的全部脚本已整理为 Maven 工程，上传至 GitHub 公开仓库："
-           "`https://github.com/<GitHub用户名>/bigdata-lab1`（Public）。目录约定：`scripts/` 放 Shell 脚本，"
+           "`https://github.com/YuuAnnooo/sdu-bigdata-labs`（Public，本实验位于 `bigdata-lab1/`）。"
+           "目录约定：`scripts/` 放 Shell 脚本，"
            "`src/main/java` 放 Java 源码，`input/` 为样例输入，`out/` 为输出结果，`tools/local_check.py` 为"
            "不依赖 Hadoop 的本地逻辑校验脚本；编译命令 `mvn -q clean package` 生成 `target/bigdata-lab1.jar`。")
 
