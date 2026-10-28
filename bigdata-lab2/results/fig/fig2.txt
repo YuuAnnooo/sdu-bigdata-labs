@@ -1,0 +1,8 @@
+$ wc -l stopwords/stopwords_en.txt
+177 stopwords/stopwords_en.txt
+
+$ head -20 stopwords/stopwords_en.txt | tr '\n' ' '
+a about above after again against all also am an and any are aren't as at be because been before
+
+$ tail -2 stopwords/stopwords_en.txt
+yourself yourselves

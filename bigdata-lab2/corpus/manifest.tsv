@@ -1,0 +1,11 @@
+file	title	url	words
+document01.txt	Apache Hadoop	https://en.wikipedia.org/wiki/Apache_Hadoop	930
+document02.txt	MapReduce	https://en.wikipedia.org/wiki/MapReduce	1292
+document03.txt	Inverted index	https://en.wikipedia.org/wiki/Inverted_index	654
+document04.txt	Apache Spark	https://en.wikipedia.org/wiki/Apache_Spark	1202
+document05.txt	Big data	https://en.wikipedia.org/wiki/Big_data	997
+document06.txt	Search engine indexing	https://en.wikipedia.org/wiki/Search_engine_indexing	1256
+document07.txt	Lucene	https://en.wikipedia.org/wiki/Apache_Lucene	576
+document08.txt	Distributed computing	https://en.wikipedia.org/wiki/Distributed_computing	1241
+document09.txt	Data mining	https://en.wikipedia.org/wiki/Data_mining	1264
+document10.txt	Cloud computing	https://en.wikipedia.org/wiki/Cloud_computing	1170

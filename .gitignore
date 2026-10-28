@@ -1,0 +1,18 @@
+# 编译产物
+target/
+*.class
+*.jar
+
+# Python
+__pycache__/
+*.pyc
+
+# IDE / 系统文件
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
+
+# 课程下发的题目文档（不是自己的代码）
+实验三 PageRank算法实现.docx

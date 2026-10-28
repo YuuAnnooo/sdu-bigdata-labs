@@ -1,0 +1,25 @@
+Big_data	Apache_Hadoop,MapReduce,Apache_Spark,NoSQL,Machine_learning,Data_mining,Cloud_computing,Database
+Apache_Hadoop	HDFS,MapReduce,YARN,HBase,Hive,Apache_ZooKeeper,hadoop_tutorial_pdf
+MapReduce	Apache_Hadoop,Distributed_computing,Apache_Spark
+Apache_Spark	MapReduce,Apache_Hadoop,Machine_learning,Python_(programming_language)
+HBase	NoSQL,Apache_Hadoop,HDFS
+HDFS	Apache_Hadoop,Distributed_computing,Computer_cluster
+Hive	Data_warehouse,Apache_Hadoop,MapReduce
+NoSQL	Database,Big_data,HBase
+Distributed_computing	Computer_cluster,Cloud_computing,MapReduce
+Cloud_computing	Distributed_computing,Big_data,Apache_Hadoop
+Machine_learning	Data_mining,Statistics,Python_(programming_language),Big_data
+Data_mining	Machine_learning,Statistics,Database,Big_data
+Database	Data_warehouse,NoSQL
+Google	Search_engine,PageRank,Big_data,MapReduce
+PageRank	Search_engine,Inverted_index,Google,Information_retrieval
+Search_engine	Inverted_index,Information_retrieval,PageRank,Google
+Inverted_index	Information_retrieval,Search_engine,Database
+Information_retrieval	Search_engine,Inverted_index,Machine_learning
+YARN	Apache_Hadoop,Computer_cluster,Distributed_computing
+Apache_ZooKeeper	Distributed_computing,Apache_Hadoop
+Data_warehouse	Database,Hive,Data_mining
+Computer_cluster	Distributed_computing,Cloud_computing
+Statistics	Data_mining,Machine_learning
+Python_(programming_language)	Machine_learning,Apache_Spark,Data_mining
+hadoop_tutorial_pdf	
