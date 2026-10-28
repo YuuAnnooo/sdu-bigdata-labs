@@ -273,7 +273,7 @@ def build() -> Path:
     row2 = table.rows[2]
     b = row2.cells[0].merge(row2.cells[1]).merge(row2.cells[2])
     cell_text(b, "Email：________________@mail.sdu.edu.cn        GitHub 仓库（公开）："
-                 "https://github.com/__________/inverted-index")
+                 "https://github.com/YuuAnnooo/sdu-bigdata-labs")
 
     fix_table_layout(table, widths)
 
