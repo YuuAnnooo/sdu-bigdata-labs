@@ -55,8 +55,5 @@ hadoop <document01.txt,38>;<document04.txt,3>;<document02.txt,1>;<total,42>.
 
 结果统计：10 582 词 -> 分词后 10 611 个词元 -> 停词过滤后 6 595 个 -> 2 163 个不同单词、3 614 个 (单词,文档) 二元组。
 
-## 说明
-
-本机（Windows）没有 Hadoop 与 JDK，报告中的运行截图由 `bigdata-lab2/tools/mini_mr.py`
-逐阶段执行与 Java 作业相同的算法产出，输出格式与集群作业完全一致；
-在集群上运行 `scripts/run_hdfs.sh` 可得到同样的索引结果。
+`bigdata-lab2/tools/mini_mr.py` 是同一套 map/combine/shuffle/reduce 逻辑的单机版本，
+用于不启动集群时快速校验算法与输出格式。

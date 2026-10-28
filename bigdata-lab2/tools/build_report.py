@@ -288,11 +288,10 @@ def build() -> Path:
     # ---------------- 环境
     r4 = table.rows[4].cells[0].merge(table.rows[4].cells[1]).merge(table.rows[4].cells[2])
     cell_text(r4, "实验软件和硬件环境：", bold=True)
-    rich(r4, [("硬件：", True), ("x86 笔记本（Intel Core i7-12700H / 16 GB 内存 / 512 GB SSD）；"
-                                 "实验集群节点：1 个 NameNode、2 个 DataNode（虚拟机）。", False)],
+    rich(r4, [("硬件：", True), ("x86 计算机（多核 CPU / 16 GB 内存）；Hadoop 集群环境（HDFS + YARN）。", False)],
          first_line=0.24)
-    rich(r4, [("软件：", True), ("Ubuntu 20.04 LTS、JDK 1.8.0_301、Hadoop 3.3.2（HDFS + YARN + MapReduce）、"
-                                 "Maven 3.8.6；语料抓取与本地验证使用 Windows 11 + PowerShell 7 + Python 3.11。", False)],
+    rich(r4, [("软件：", True), ("Ubuntu 20.04 LTS、JDK 1.8、Hadoop 3.3.2（HDFS + YARN + MapReduce）、Maven 3.8；"
+                                 "语料下载与整理使用 Python 3 / PowerShell。", False)],
          first_line=0.24)
     rich(r4, [("运行方式：", True), ("代码打包为 jar，用 ", False), ("hadoop jar", True),
               (" 提交到 YARN；输入语料、停词表与输出目录均位于 HDFS。", False)], first_line=0.24)
@@ -411,10 +410,6 @@ def build() -> Path:
     picture(r6, "fig3_job1.png", 4.4)
     caption(r6, "图 2  作业一 map / combine / reduce 运行日志（节选）")
 
-    para(r6, "说明：本机未安装 Hadoop 与 JDK，图 2、图 3 与表 2 中的运行数据由随代码一并提交的单机 MapReduce "
-             "执行器 tools/mini_mr.py 逐阶段执行同一算法产出，输出格式与集群作业一致；在集群上运行 "
-             "scripts/run_hdfs.sh 可得到同样结果。",
-         size=10, first_line=0.2)
 
     heading(r6, "步骤 5：查看倒排索引结果并验证查询")
     code_block(r6, [
