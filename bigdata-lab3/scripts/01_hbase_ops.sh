@@ -39,7 +39,6 @@ put 'student', '2015003', 'Info:sex',  'male'
 put 'student', '2015003', 'Info:age',  '24'
 
 put 'student', '2015001', 'Score:Math', '86'
-put 'student', '2015001', 'Score:Computer Science', '0'
 put 'student', '2015001', 'Score:English', '69'
 put 'student', '2015002', 'Score:Computer Science', '77'
 put 'student', '2015002', 'Score:English', '99'

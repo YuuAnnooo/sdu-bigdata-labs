@@ -284,8 +284,8 @@ public class HBaseApp {
         addRecord("student", "2015003", new String[]{"Info:name", "Info:sex", "Info:age"},
                 new String[]{"Lisi", "male", "24"});
         addRecord("student", "2015001",
-                new String[]{"Score:Math", "Score:Computer Science", "Score:English"},
-                new String[]{"86", "0", "69"});
+                new String[]{"Score:Math", "Score:English"},
+                new String[]{"86", "69"});
         addRecord("student", "2015002", new String[]{"Score:Computer Science", "Score:English"},
                 new String[]{"77", "99"});
         addRecord("student", "2015003", new String[]{"Score:Math", "Score:Computer Science"},

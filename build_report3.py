@@ -210,13 +210,11 @@ hbase(main):009:0> count 'sc'
            "新写入即为最新值）；`deleteRow` 用 `Delete(row)` 删除整行。执行效果如下：")
     put_code(c, """$ hadoop jar target/bigdata-lab3.jar cn.sdu.bigdata.lab3.hbase.HBaseApp init
 已创建表 student，列族 = Info,Score      （course、sc 同）
-$ ... HBaseApp showcol student Score
---- student 的列 Score ---
-2015001   Computer Science = 0
-2015001   English          = 69
-2015001   Math             = 86
-2015002   English          = 99
-2015003   Computer Science = 95
+$ ... HBaseApp showcol student Score:Computer Science
+--- student 的列 Score:Computer Science ---
+2015001      null
+2015002      77
+2015003      95
 $ ... HBaseApp modify student 2015001 Score:Math 95
 已修改 2015001 的 Score:Math：86 -> 95
 $ ... HBaseApp delRow sc 2015002_123003
@@ -279,7 +277,8 @@ out = (ranks.map(lambda kv: (kv[1], kv[0])).sortByKey(False)
            "但尚未完全收敛；这与阻尼因子决定的收敛速度 d^k 一致。"
         % "、".join("%.2e" % d for d in deltas))
     put(c, "以上两部分程序与全部脚本已整理为 Maven 工程，上传至 GitHub 公开仓库："
-           "`https://github.com/<GitHub用户名>/bigdata-lab3`（Public）。目录约定：`src/main/java` "
+           "`https://github.com/YuuAnnooo/sdu-bigdata-labs`（Public，本实验位于 `bigdata-lab3/`）。"
+           "目录约定：`src/main/java` "
            "放 Java 源码（`hbase/HBaseApp`、`pagerank/PageRankMR`、`pagerank/PageRankSpark`），"
            "`spark/` 放 PySpark 版，`data/` 放数据集，`out/` 放输出结果，`tools/` 放数据集生成与"
            "本地校验脚本；`mvn -q clean package` 生成 `target/bigdata-lab3.jar`。")
