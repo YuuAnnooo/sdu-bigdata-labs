@@ -133,7 +133,7 @@ python tools/compare_results.py --local out/local --spark out/spark --out out/co
 
 ## 环境
 
-- Ubuntu 24.04 LTS（WSL2），4 个 vCPU、8 GB 内存
+- Ubuntu 24.04 LTS（WSL2），宿主 16 核 24 线程、16 GB 内存；WSL2 可用 7.6 GB，Spark 统一用 `local[4]`
 - OpenJDK 8、Python 3.12
 - Spark 3.5.3（`local[4]`；另用 standalone 1 Master + 1 Worker 验证过同一脚本）
 - 不依赖 Hadoop/HDFS，输入输出均为本地文件；把路径换成 `hdfs://...` 也可直接提交
