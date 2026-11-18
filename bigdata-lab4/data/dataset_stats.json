@@ -1,0 +1,20 @@
+{
+  "source": "UCI Online Retail (DOI 10.24432/C5BW33)",
+  "raw_rows": 541909,
+  "removed_cancelled": 9288,
+  "removed_non_product": 5265,
+  "removed_quantity_le_0": 10624,
+  "removed_price_le_0": 2517,
+  "clean_rows": 525462,
+  "invoices": 19769,
+  "baskets": 18270,
+  "items": 3784,
+  "item_occurrences": 513506,
+  "avg_basket": 28.11,
+  "median_basket": 17,
+  "max_basket": 1097,
+  "date_start": "2010-12-01",
+  "date_end": "2011-12-09",
+  "countries": 38,
+  "min_support_note": "支持度阈值按购物篮数 baskets 计算"
+}

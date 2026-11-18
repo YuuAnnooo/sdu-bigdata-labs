@@ -1,0 +1,35 @@
+{
+  "implementation": "local",
+  "transactions": 73080,
+  "items": 3784,
+  "min_support": 0.005,
+  "min_support_count": 366,
+  "min_confidence": 0.5,
+  "load_seconds": 0.6925,
+  "tidset_seconds": 1.7914,
+  "level_seconds": {
+    "2": 10.136,
+    "3": 1.5406,
+    "4": 0.1545,
+    "5": 0.0278,
+    "6": 0.0037,
+    "7": 0.0002,
+    "8": 0.0
+  },
+  "rules_seconds": 0.3986,
+  "mine_seconds": 14.0801,
+  "compute_seconds": 14.7726,
+  "total_seconds": 15.0762,
+  "itemsets": 22522,
+  "rules": 35657,
+  "level_itemsets": {
+    "1": 1609,
+    "2": 10082,
+    "3": 7136,
+    "4": 2805,
+    "5": 802,
+    "6": 87,
+    "7": 1,
+    "8": 0
+  }
+}

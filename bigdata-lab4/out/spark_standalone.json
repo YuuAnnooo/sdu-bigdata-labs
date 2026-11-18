@@ -1,0 +1,38 @@
+{
+  "implementation": "spark",
+  "master": "spark://127.0.0.1:7077",
+  "transactions": 18270,
+  "items": 3784,
+  "partitions": 2,
+  "slices": 2,
+  "rule_mode": "spark",
+  "min_support": 0.005,
+  "min_support_count": 92,
+  "min_confidence": 0.5,
+  "load_seconds": 5.4405,
+  "tidset_seconds": 0.9692,
+  "level_seconds": {
+    "2": 4.4794,
+    "3": 1.0122,
+    "4": 0.2248,
+    "5": 0.1579,
+    "6": 0.1244,
+    "7": 0.1167,
+    "8": 0.0
+  },
+  "rules_seconds": 0.8986,
+  "compute_seconds": 13.4237,
+  "wall_seconds": 15.6995,
+  "itemsets": 22522,
+  "rules": 35657,
+  "level_itemsets": {
+    "1": 1609,
+    "2": 10082,
+    "3": 7136,
+    "4": 2805,
+    "5": 802,
+    "6": 87,
+    "7": 1,
+    "8": 0
+  }
+}

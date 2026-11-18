@@ -1,0 +1,16 @@
+# 原始数据（可由 tools/prepare_data.py --download 重新下载）
+data/raw/
+
+# 弱扩展实验生成的数据
+data/bench_*.tsv
+
+# 中间输出
+out/_*
+*_x4_itemsets.tsv
+*_x4_rules.tsv
+*_x8_itemsets.tsv
+*_x8_rules.tsv
+
+# Python
+__pycache__/
+*.pyc

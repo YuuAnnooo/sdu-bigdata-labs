@@ -223,7 +223,7 @@ def iter_all_paragraphs(doc):
 
 def apply_keep_rules(doc):
     """标题与其后正文同页；代码/输出块不跨页断开。"""
-    pat = re.compile(r"^(一、|二、|三、|四、|五、|问题[一二三四])")
+    pat = re.compile(r"^(?:[一二三四五六七八九十]+、|问题[一二三四五六七八九十])")
     for p in iter_all_paragraphs(doc):
         text = p.text.strip()
         pf = p.paragraph_format
